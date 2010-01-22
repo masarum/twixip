@@ -1,8 +1,11 @@
-application: twixi
+application: twixip
 version: 1
 runtime: python
 api_version: 1
 
 handlers:
-- url: .*
+- url: /
+  script: main.py
+
+- url: /(.*)/sync
   script: main.py

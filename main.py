@@ -18,16 +18,16 @@
 
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp import util
-
+from twixi.handler import SyncHandler
 
 class MainHandler(webapp.RequestHandler):
-
   def get(self):
     self.response.out.write('Hello world!')
 
 
 def main():
-  application = webapp.WSGIApplication([('/', MainHandler)],
+  application = webapp.WSGIApplication([('/', MainHandler),
+                                        (r'/(.*)/sync', SyncHandler)],
                                        debug=True)
   util.run_wsgi_app(application)
 
