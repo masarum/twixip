@@ -1,0 +1,3 @@
+[submodule "mixi"]
+	path = mixi
+	url = git@github.com:masarum/mixi-atom-python.git
