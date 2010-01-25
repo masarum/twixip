@@ -9,3 +9,8 @@ handlers:
 
 - url: /(.*)/sync
   script: main.py
+  login: admin
+
+- url: /_add_user
+  script: main.py
+  login: admin

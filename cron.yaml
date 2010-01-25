@@ -1,0 +1,26 @@
+cron:
+- description: voxlet sync
+  url: /voxlet/sync
+  schedule: every day 06:00
+  timezone: Asia/Tokyo
+
+- description: voxlet sync 2
+  url: /voxlet/sync
+  schedule: every day 06:05
+  timezone: Asia/Tokyo
+
+- description: voxlet sync 3
+  url: /voxlet/sync
+  schedule: every day 06:10
+  timezone: Asia/Tokyo
+
+- description: voxlet sync 4
+  url: /voxlet/sync
+  schedule: every day 06:15
+  timezone: Asia/Tokyo
+
+- description: voxlet sync 5
+  url: /voxlet/sync
+  schedule: every day 06:20
+  timezone: Asia/Tokyo
+

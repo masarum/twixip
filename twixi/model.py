@@ -5,4 +5,6 @@ class TwixiUser(db.Model):
   mixi_username = db.StringProperty(required=True)
   mixi_password = db.StringProperty(required=True)
   mixi_memberid = db.StringProperty(required=True)
+  timezone = db.StringProperty(required=True)
+  last_tweetid = db.StringProperty()
 

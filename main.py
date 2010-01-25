@@ -18,7 +18,7 @@
 
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp import util
-from twixi.handler import SyncHandler
+from twixi.handler import SyncHandler, AddUserHandler
 
 class MainHandler(webapp.RequestHandler):
   def get(self):
@@ -27,6 +27,7 @@ class MainHandler(webapp.RequestHandler):
 
 def main():
   application = webapp.WSGIApplication([('/', MainHandler),
+                                        ('/_add_user', AddUserHandler),
                                         (r'/(.*)/sync', SyncHandler)],
                                        debug=True)
   util.run_wsgi_app(application)

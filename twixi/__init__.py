@@ -1,5 +1,5 @@
 def Encrypt(string):
-  pass
+  return string
 
 def Decrypt(string):
-  pass
+  return string
