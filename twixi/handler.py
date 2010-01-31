@@ -97,15 +97,18 @@ class SyncHandler(webapp.RequestHandler):
     (title, body) = self.prettyFormat(tweets, user)
     logging.debug(title)
     logging.debug(body)
+    if not body:
+      self.response.out.write('Nothing to post\n')
+      return
   
     service = mixi.Service(user.mixi_username,
                            twixi.Decrypt(user.mixi_password),
                            user.mixi_memberid)
     entry = mixi.DiaryEntry(title, body)
-    (response, body) = service.postDiary(entry);
+    (response, rbody) = service.postDiary(entry);
 
     self.response.set_status(response.status, response.reason.encode('utf-8'))
-    self.response.out.write(body.encode('utf-8'))
+    self.response.out.write(rbody)
 
 class AddUserHandler(webapp.RequestHandler):
   def get(self):
