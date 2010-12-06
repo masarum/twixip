@@ -47,9 +47,9 @@ class SyncHandler(webapp.RequestHandler):
     entries = tree.findall('{http://www.w3.org/2005/Atom}entry')
     lastid = None
     for entry in entries:
-      datestring = entry.find('{http://www.w3.org/2005/Atom}published').text
+      datestring = entry.find('{http://www.w3.org/2005/Atom}published').text.replace('+00:00', 'Z')
       published = datetime.datetime.strptime(datestring,
-                                             "%Y-%m-%dT%H:%M:%S+00:00")
+                                             "%Y-%m-%dT%H:%M:%SZ")
       tweets[published] = entry.find('{http://www.w3.org/2005/Atom}content').text
       id = entry.find('{http://www.w3.org/2005/Atom}id').text
       id = int(id.rsplit('/', 1)[1]);
